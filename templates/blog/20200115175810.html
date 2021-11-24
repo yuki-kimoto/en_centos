@@ -1,71 +1,71 @@
-<h2>Apacheのインストールと起動・停止・自動起動の設定 - CentOS7</h2>
+<h2> Apache installation and start / stop / auto start settings --CentOS7 </ h2>
 
-CentOS7でのApacheのインストールと起動・停止・自動起動の設定の手順です。
+This is the procedure for installing Apache on CentOS7 and setting start / stop / automatic start.
 
-<h3>Apacheのインストール</h3>
+<h3> Apache installation </ h3>
 
-Apacheのインストールは、yumコマンドを使って行います。
+Install Apache using the yum command.
 
 <pre>
-# Apacheのインストール
+#Install Apache
 sudo yum -y install httpd
-</pre>
+</ pre>
 
-<h3>Apacheのバージョン確認</h3>
+<h3> Apache version check </ h3>
 
-Apacheのバージョンを確認してみましょう。
+Let's check the version of Apache.
 
 <pre>
 httpd -version
-</pre>
+</ pre>
 
-Apacheのバージョンは、2.4.6でした。
-
-<pre>
-Server version: Apache/2.4.6 (CentOS)
-Server built:   Aug  8 2019 11:41:18
-</pre>
-
-<h3>Apacheの自動起動の設定</h3>
-
-CentOS7を起動したときにApacheが自動起動するようにしておきます。Apacheの自動起動の設定をするにはsystemctlコマンドの「enable」を使用します。
+The version of Apache was 2.4.6.
 
 <pre>
-# Apacheの自動起動の設定
+Server version: Apache / 2.4.6 (CentOS)
+Server built: Aug 8 2019 11:41:18
+</ pre>
+
+<h3> Apache auto-start settings </ h3>
+
+Make sure Apache starts automatically when you start CentOS7. Use the systemctl command "enable" to set Apache to start automatically.
+
+<pre>
+#Apache autostart settings
 sudo systemctl enable httpd.service
-</pre>
+</ pre>
 
-<h3>Apacheの起動</h3>
+<h3> Start Apache </ h3>
 
-Apacheを起動します。Apacheを起動するにはsystemctlコマンドの「start」を使用します。
+Start Apache. To start Apache, use the systemctl command "start".
 
 <pre>
-# Apacheの起動
+#Start Apache
 sudo systemctl start httpd.service
-</pre>
+</ pre>
 
-<h3>Apacheの停止</h3>
+<h3> Stop Apache </ h3>
 
-Apacheを停止するにはsystemctlコマンドの「stop」を使用します。
+Use the systemctl command "stop" to stop Apache.
 
 <pre>
-# Apacheの停止
+# Stop Apache
 sudo systemctl stop httpd.service
-</pre>
+</ pre>
 
-<h3>Apacheの再起動</h3>
+<h3> Restart Apache </ h3>
 
-Apacheを再起動するにはsystemctlコマンドの「restart」を使用します。
+Use the systemctl command "restart" to restart Apache.
 
 <pre>
-# Aapcheの再起動
+#Restart Aapche
 sudo systemctl restart httpd.service
-</pre>
+</ pre>
 
-<h3>HTTPS接続を可能にするには?</h3>
+<h3> How to enable HTTPS connection? </ H3>
 
-HTTPS接続は、SSL接続ですので、mod_sslが必要です。以下の記事を参考にしてください。
+The HTTPS connection is an SSL connection, so mod_ssl is required. Please refer to the following articles.
 
 <ul>
-  <li><a href="/blog/20200112182708.html">CentOS 7のApacheでHTTPS接続のためにmod_sslをインストールする</li>
-</ul>
+  <li> <a href="/blog/20200112182708.html"> Install mod_ssl for HTTPS connection with Apache on CentOS 7 </ li>
+</ ul>

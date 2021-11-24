@@ -1,21 +1,21 @@
-<h2>Redisサーバーの起動・停止・再起動・状態確認</h2>
+<h2>Starting, Stopping, Restarting, and Checking the Status of Redis Server</h2>.
 
-Redisサーバーの起動・停止・再起動・状態確認について解説します。
+Describes how to start, stop, restart, and check the status of the Redis server.
 
-<h4>Redisの状態確認</h4>
+<h4>Checking the status of Redis</h4
 
-Redisの状態確認は、systemctlコマンドの「status」を使って行います。
+To check the status of Redis, use the systemctl command "status".
 
-<pre>
+<pre
 sudo systemctl status redis
-</pre>
+</pre>.
 
-<h5>起動している場合</h5>
+<h5>If it is running</h5
 
-起動している場合は、以下のように表示されます。
+If the system is running, the following message will be displayed.
 
-<pre>
-● redis.service - Redis persistent key-value database
+<pre> redis.service
+redis.service - Redis persistent key-value database
    Loaded: loaded (/usr/lib/systemd/system/redis.service; disabled; vendor preset: disabled)
   Drop-In: /etc/systemd/system/redis.service.d
            mqlimit.conf
@@ -25,76 +25,76 @@ sudo systemctl status redis
            mq27074 /usr/bin/redis-server 127.0.0.1:6379
 </pre>
 
-<h5>停止している場合</h5>
+<h5>If it is stopped</h5>.
 
-停止している場合は、以下のように表示されます。
+If the service is stopped, the following message will be displayed.
 
 <pre>
-● redis.service - Redis persistent key-value database
+redis.service - Redis persistent key-value database
    Loaded: loaded (/usr/lib/systemd/system/redis.service; disabled; vendor preset: disabled)
   Drop-In: /etc/systemd/system/redis.service.d
            mqlimit.conf
    Active: inactive (dead)
-</pre>
+</pre> <h4
 
-<h4>Redisの起動</h4>
+<h4>Start Redis</h4>.
 
-Redisの起動は、systemctlコマンドの「start」を使って行います。sudoコマンドを使って、root権限で実行します。
+To start Redis, use the systemctl command "start", run it with root privileges using the sudo command.
 
 <pre>
 sudo systemctl start redis
-</pre>
+</pre>.
 
-起動が成功しても、成功したというメッセージは返ってきません。状態確認を行ってください。
+Even if the startup is successful, you will not get a message saying it was successful. Please check the status.
 
-<h4>Redisの停止</h4>
+<h4>Stopping Redis</h4
 
-Redisの停止は、systemctlコマンドの「stop」を使って行います。sudoコマンドを使って、root権限で実行します。
+To stop Redis, use the systemctl command "stop", run as root using the sudo command.
 
 <pre>
 sudo systemctl stop redis
-</pre>
+</pre>.
 
-停止が成功しても、成功したというメッセージは何も返ってきません。状態確認を行ってください。
+If the stop is successful, no message will be returned. Please check the status.
 
-<h4>Redisの再起動</h4>
+<h4>Restart Redis</h4>.
 
-Redisの再起動は、systemctlコマンドの「restart」を使って行います。sudoコマンドを使って、root権限で実行します。
+To restart Redis, use the systemctl command "restart", run it with root privileges using the sudo command.
 
-<pre>
+<pre>.
 sudo systemctl restart redis
-</pre>
+</pre>.
 
-restartは単に、stopコマンドを実行して、startコマンドを実行します。
+restart simply executes the stop command, and then executes the start command.
 
-<h3>Redisの起動・停止のログを見るには</h3>
+<h3>How to view the log of starting and stopping Redis</h3>.
 
-Redisなどのサーバーは、systemdというプログラムによって集中的に管理されています。
+Servers such as Redis are centrally managed by a program called systemd.
 
-systemdのログにRedisの起動・停止ログが出力されています。
+Redis start/stop logs are output to the systemd logs.
 
-systemdのログを見るには<a href="/blog/20200602135100.html">journalctlコマンド</a>を使います。「-u」オプションでユニット「redis」を指定します。sudoで実行しないとRedisサーバーのログが見れないので注意してください。ログの最後の部分だけ見たい場合は「-r」オプションを組み合わせます。
+To view the systemd logs, use the <a href="/blog/20200602135100.html">journalctl command</a>. Note that you cannot see the logs of the Redis server unless you run it with sudo. If you want to see only the last part of the log, use the "-r" option.
 
-<pre>
+<pre>.
 sudo journalctl -r -u redis
-</pre>
+</pre>.
 
-ログのサンプルです。
+Here is a sample of the log
 
-<pre>
+<pre> Jul 29 09:44:13 t
 Jul 29 09:44:13 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Started Redis persistent key-value database.
 Jul 29 09:44:13 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Starting Redis persistent key-value database...
-Jul 29 09:43:27 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Stopped Redis persistent key-value database.
+Jul 29 09:43:27 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Stopped Redis persistent key-value database...
 Jul 29 09:43:27 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Stopping Redis persistent key-value database...
-Jul 29 09:19:06 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Started Redis persistent key-value database.
+Jul 29 09:19:06 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Started Redis persistent key-value database...
 Jul 29 09:19:06 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Starting Redis persistent key-value database...
-</pre>
+</pre>.
 
-<h3>Redisのsystemdの設定ファイルを見るには</h3>
+<h3>How to view the systemd configuration file for Redis</h3>.
 
-Redisのsystemdの設定ファイルは「systemctl status redis」で見れます。
+You can view the Redis systemd configuration file by using "systemctl status redis".
 
-設定ファイルを<a href="https://linux.perlclub.net/blog/20200113083613.html">catコマンド</a>で見てみましょう。
+Let's look at the configuration file using the <a href="https://linux.perlclub.net/blog/20200113083613.html">cat command</a>.
 
 <pre>
 cat /lib/systemd/system/redis.service

@@ -1,23 +1,23 @@
-<h2>Firefoxをインストールする - CentOS 7</h2>
+<h2>Installing Firefox - CentOS 7</h2
 
-Firefoxをyumコマンドでインストールします。CentOS 7で試しました。
+Install Firefox with the yum command, tried on CentOS 7.
 
-<pre>
+<pre>.
 yum -y install firefox
 </pre>
 
-<h3>Firefoxをヘッドレス実行する</h3>
+<h3>Run Firefox headlessly</h3>.
 
-ヘッドレス実行とはGUI画面なしでWebサイトのアクセスすることです。Firefoxをヘッドレス実行してスクリーンショットを取得します。
+Headless execution is the process of accessing a website without a GUI screen, so let's run Firefox headless and get a screenshot.
 
-<pre>
+<pre>.
 firefox -headless -screenshot https://developer.mozilla.com
-</pre>
+</pre>.
 
-以下はスクリーンショットです。
+Here is the screenshot
 
 <img src="/images/firefox/screenshot.png" style="width:100%">
 
-<h3>JavaScript対応のWebスクレイピングをPerlで行うには?</h3>
+<h3>How to do JavaScript-enabled web scraping in Perl? </h3>
 
-JavaScript対応のWebスクレイピングをPerlで行うにはFirefoxに加えて、<a href="/blog/20210105090837.html">GeckoDriverのインストール</a>と<a href="https://perlzemi.com/blog/20091116124667.html">Perlモジュール</a>の<a href="https://perlzemi.com/blog/20210105145700.html">Selenium::Remote::Driver</a>が必要です。
+To do JavaScript-enabled web scraping with Perl, in addition to Firefox, you need to <a href="/blog/20210105090837.html">install GeckoDriver</a> and <a href="https://perlzemi. com/blog/20091116124667.html">Perl module</a> and <a href="https://perlzemi.com/blog/20210105145700.html">Selenium::Remote::Driver</a>. You can use the following

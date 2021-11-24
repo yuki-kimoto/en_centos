@@ -1,40 +1,40 @@
-<h2>GeckoDriverをインストールする - Cent OS 7</h2>
+<h2>Install GeckoDriver - Cent OS 7</h2
 
-Firefoxをプログラムから制御するためのGeckoDriverをインストールしましょう。GeckoDriverのバイナリを直接配置します。64bit版のLinuxであることを想定します。Cent OS 7で確認しています。
+Let's install GeckoDriver to control Firefox programmatically. We'll place the GeckoDriver binary directly, assuming you're running a 64-bit version of Linux.
 
-<pre>
+<pre
 firefox -v
 </pre>
 
-バージョン。
+Version.
 
 <pre>
 Mozilla Firefox 78.6.0esr
 </pre>
 
-GeckoDriverをインストールしましょう。
+Install the GeckoDriver.
 
 <pre>
 cd /usr/local/src
 wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
 tar -xf geckodriver-v0.26.0-linux64.tar.gz
 mv geckodriver /usr/local/bin/
-</pre>
+</pre>.
 
-GeckoDriverのバージョン確認。
+Check the version of GeckoDriver.
 
-<pre>
+<pre> geckodriver --version
 geckodriver --version
-</pre>
+</pre>.
 
-バージョンの出力結果。
+Output result of the version.
 
 <pre>
 geckodriver 0.26.0 (e9783a644016 2019-10-10 13:38 +0000)
 </pre>
 
-不具合がある場合は、FirefoxとGeckoDriverのバージョンをWeb上で検索して、確認してください。
+If there are any problems, please search the web for Firefox and GeckoDriver versions and check them.
 
-<h3>JavaScript対応のWebスクレイピングをPerlで行うには?</h3>
+<h3>How to do JavaScript-enabled web scraping in Perl? </h3
 
-JavaScript対応のWebスクレイピングをPerlで行うには<a href="/blog/20210106090837.html">Firfoxのインストール</a>と<a href="https://perlzemi.com/blog/20091116124667.html">Perlモジュール</a>の<a href="https://perlzemi.com/blog/20210105145700.html">Selenium::Remote::Driver</a>も必要です。
+To do JavaScript-enabled web scraping in Perl, you need to install <a href="/blog/20210106090837.html">Firfox</a> and <a href="https://perlzemi.com/blog/ 20091116124667.html">Perl module</a>, you will also need <a href="https://perlzemi.com/blog/20210105145700.html">Selenium::Remote::Driver</a>.

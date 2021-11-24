@@ -1,21 +1,24 @@
-<h2>htpasswd - Apacheベーシック認証のパスワードファイルの作成 - CentOS 7</h2>
+<h2>htpasswd - Create a password file for Apache Basic Authentication - CentOS 7</h2
 
-htpasswdコマンドを使うと、Apacheベーシック認証のパスワードファイルを作成することができます。
+The htpasswd command can be used to create a password file for Apache Basic Authentication.
 
-パスワードファイル名は、作成するパスワードファイルの名前です。ユーザー名は、追加あるいはパスワードを変更するユーザー名です。
+The password file name is the name of the password file to be created. The user name is the name of the user you want to add or change the password for.
 
-<pre>
-htpasswd -c パスワードファイル名 ユーザー名
-</pre>
+<pre>.
+htpasswd -c password file name user name
+</pre>.
 
-実際に、パスワードファイルを作成してみましょう。パスワードファイル名は、隠しファイルで「.htpasswd」です。ユーザー名は「kimotosystem」です。
+Let's actually create the password file. The password file name is ".htpasswd" in a hidden file. The user name is "kimotosystem".
 
-<pre>
+<pre>.
 htpasswd -c .htpasswd kimotosystem
-</pre>
+</pre>.
 
-パスワードを聞かれますので、入力してEnterを押しましょう。
+You will be asked for a password, so type it in and press Enter.
 
-もう一度聞かれますので、入力してEnterを押しましょう。
+You will be asked for the password again, type it in and press Enter.
 
-このパスワードファイルは、Apacheのベーシック認証の設定で利用します。
+This password file is used to set up basic authentication for Apache.
+
+
+Translated with www.DeepL.com/Translator (free version)

@@ -1,33 +1,33 @@
-<h2>redis-cli - RedisクライアントからRedisコマンドを実行する</h2>
+<h2>redis-cli - Run Redis commands from Redis client</h2>.
 
-redis-cliは、Redisコマンドを実行するためのRedisクライアントです。<a href="/blog/20200525135533.html">Redisサーバーをインストール</a>すると自動的にインストールされます。
+redis-cli is a Redis client for running Redis commands. It is automatically installed when you <a href="/blog/20200525135533.html">install the Redis server</a>.
 
 <pre>
 redis-cli
-</pre>
+</pre>.
 
-Redisクライアントが起動します。
+This will start the Redis client.
 
-<h3>Redisコマンド</h3>
+<h3>Redis command</h3>.
 
-Redisコマンドを実行しましょう。
+Run the Redis command.
 
-<h4>PUBを実行するPUBLISH</h4>
+<h4>PUBLISH to run PUB</h4>.
 
-PUBLISHコマンドを実行するとPUBを実行できます。PUBは、push通知に使用します。
-
-<pre>
-PUBLISH チャンネル名 メッセージ
-</pre>
-
-チャンネル名もメッセージも単なる文字列です。複雑なデータ構造が必要な場合は、メッセージにJSONを使いましょう。
-
-チャンネル名はすべてのプロセスでグローバルな名前空間ですので、重ならない名前を考えましょう。
+Run the PUBLISH command to run PUB. PUB is used for push notifications.
 
 <pre>
-PUBLISH  /foo/bar/baz?id=5 Hello
-PUBLISH  "/foo/bar/baz?id=5" "Hello"
-PUBLISH  "/foo/bar/baz?id=5" '{message : "Hello"}'
+PUBLISH channel name message
 </pre>
 
-文字列の囲みは、ダブルクォートとシングルクォートの両方が使えます。
+Both the channel name and the message are just strings. If you need a complex data structure, use JSON for the message.
+
+The channel name is a global namespace for all processes, so come up with a non-overlapping name.
+
+<pre>.
+PUBLISH /foo/bar/baz?id=5 Hello
+PUBLISH "/foo/bar/baz?id=5" "Hello"
+PUBLISH "/foo/bar/baz?id=5" '{message : "Hello"}'
+</pre>.
+
+Both double and single quotes can be used to enclose the string.

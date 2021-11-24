@@ -1,31 +1,31 @@
-<h2>apacheの設定ファイルを編集する - CentOS 7</h2>
+<h2>Editing the configuration file for apache - CentOS 7</h2>.
 
-apacheの設定ファイルを編集しましょう。apacheのグローバルな設定ファイルの場所は以下です。
+Let's edit the configuration file for apache, the global location of the configuration file for apache is as follows
 
 <pre>
 /etc/httpd/conf/httpd.conf
 </pre>
 
-viで編集しましょう。
+Let's edit it with vi.
 
 <pre>
 sudo vi /etc/httpd/conf/httpd.conf
 </pre>
 
-<h3>apacheの設定を追加できるディレクトリ</h3>
+<h3>Directory where you can add your apache configuration</h3>.
 
-グローバルな設定ファイルを編集するのは、少し怖いものです。
+Editing global configuration files can be a bit scary.
 
-apacheでは、追加の設定のための設定ディレクトリが準備されています。
+In apache, a configuration directory is prepared for additional configuration.
 
 <pre>
 /etc/httpd/conf/conf.d
 </pre>
 
-このディレクトリの中に、拡張子が「.conf」のファイルを配置すれば、自動的に読み込まれます。
+If you place a file with the extension ".conf" in this directory, it will be loaded automatically.
 
-たとえばバーチャルホスト用の設定ファイルを配置したとすると以下のようなファイル名にします。
+For example, if you place a configuration file for a virtual host, the file name should look like the following
 
-<pre>
+<pre
 vhost.conf
-</pre>
+</pre>.

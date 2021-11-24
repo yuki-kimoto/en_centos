@@ -1,17 +1,17 @@
-<h2>apacheを再起動する - CentOS 7</h2>
+<h2>Restarting apache - CentOS 7</h2
 
-apacheを再起動するには「systemctl restart httpd」を使用します。
+To restart apache, use "systemctl restart httpd".
 
 <pre>
-# apacheの再起動
+# Restart apache
 sudo systemctl restart httpd
 </pre>
 
-<h3>緩やかな再起動を行うには?</h3>
+<h3>How do I perform a graceful restart? </h3>
 
-Apacheの緩やかな再起動を行うには「gracefulは、reloadコマンドにラッピングされています。
+To perform a graceful restart of Apache, "graceful is wrapped in the reload command.
 
 <pre>
-# apacheの緩やかな再起動
+# Restart apache gracefully
 sudo systemctl reload httpd
-</pre>
+</pre>.

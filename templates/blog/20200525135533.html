@@ -8,7 +8,7 @@
     </li>
     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
       <a itemprop="item" href="/blog/20200529085516.html">
-        <span itemprop="name">パッケージ管理</span>
+        <span itemprop="name">Package Management</span>
       </a>
       <meta itemprop="position" content="2" />
     </li>
@@ -17,63 +17,63 @@
     </li>
   </ul>
 </div>
-<h2>redisのインストール - Redisサーバー 揮発性データの高速保存とPub/Sub</h2>
+<h2>Installing redis - Redis Server Fast storage of volatile data and Pub/Sub</h2>.
 
-CentOSの標準パッケージのリポジトリにはRedisサーバーが含まれていないので、エンタープライズ Linux 用の拡張パッケージ(EPEL)リポジトリをインストールします。
+Since the standard package repositories of CentOS do not include a Redis server, we will install the Extended Package for Enterprise Linux (EPEL) repository.
 
-<pre>
+<pre>.
 sudo yum -y install epel-release
-</pre>
+</pre>.
 
-Redisサーバーをインストールするにはredisパッケージをインストールします。
+To install the Redis server, install the redis package.
 
 <pre>
 sudo yum -y install redis
 </pre>
 
-<h4>Redisサーバーがインストールされたことの確認</h4>
+<h4>Verify that the Redis server has been installed.</h4>
 
-Redisサーバーがインストールされたことをsystemctlのstatusコマンドで確認してみましょう。
+Let's check that the Redis server has been installed by using the systemctl status command.
 
 <pre>
 sudo systemctl status redis
-</pre>
+</pre>.
 
-起動するには以下のコマンドを実行します。
+To start it, issue the following command
 
-<pre>
+<pre> sudo systemctl start redis
 sudo systemctl start redis
-</pre>
+</pre>.
 
-<h3>Redisクライアント - redis-cli</h4>
+<h3>Redis Client - redis-cli</h4
 
-RedisサーバーをインストールするとRedisコマンドを実行できるredis-cliというコマンドラインアプリケーションもインストールされます。
+When you install the Redis server, a command line application called redis-cli will also be installed to run Redis commands.
 
-<ul>
-  <li><a href="/blog/20200720125704.html">redis-cli - RedisクライアントからRedisコマンドを実行する</a></li>
+<ul>.
+  <li><a href="/blog/20200720125704.html">redis-cli - Run Redis commands from Redis client</a></li>
 </ul>
 
-<h3>Redisサーバーの用途</h3>
+<h3>Uses of a Redis Server</h3
 
-Redisサーバーには主に二つの用途があります。
+There are two main uses for the Redis server.
 
-<h4>揮発性データの高速保存</h4>
+<h4>Fast storage of volatile data</h4>.
 
-Redisサーバーは、揮発性データを高速に保存できます。
+The Redis server can store volatile data at high speed.
 
-揮発性データというのは、一時的で消去が予定されているデータです。
+Volatile data is data that is temporary and is scheduled to be erased.
 
-セッション情報は、一定期間で消しますし、もし消えたとしても、ユーザーにログイン画面からやりなおしてもらうだけです。セッション情報は、揮発性のデータといえます。
-またセッションは、HTTPリクエストのたびに取得しないといけないので、<a href="https://mariadb.perlclub.net/">MariaDB</a>のようなリレーショナルデータベースよりもRedisが、パフォーマンスがよいです。
+Session information is erased after a certain period of time, and even if it is erased, the user is simply asked to start over from the login screen. Session information is volatile data.
+Also, since the session must be retrieved with each HTTP request, Redis performs better than relational databases such as <a href="https://mariadb.perlclub.net/">MariaDB</a>.
 
-<h4>Pub/Subによるpush通知</h4>
+<h4>Push Notification via Pub/Sub</h4>.
 
-Redisは、Pub/Subと呼ばれるpush通知の仕組みを持っているので、リアルタイムチャット、リアルタイム更新、という分野の実装を比較的簡単に行うことができます。
+Redis has a push notification mechanism called Pub/Sub, which makes it relatively easy to implement real-time chat and real-time updates.
 
-Redisは、Web APIを持っているので、Webフレームワークがノンブロッキング対応している場合は、ノンブロッキングのHTTPリクエストでRedisにアクセスできます。
+Redis has a Web API, so if your Web framework supports non-blocking, you can access Redis with non-blocking HTTP requests.
 
-Mojolicious、WebSocket、Redisを使ったリアルタイムチャットのサンプルについては、以下を参考にしてください。
+For a sample of real-time chat using Mojolicious, WebSocket, and Redis, please refer to the following
 
-<ul>
-  <li><a href="https://en.mojolicious.perlzemi.com/blog/20100403127089.html">Mojolicious、WebSocket、Redisを使ったリアルタイムチャットのサンプル</a>
+<ul>.
+  <li><a href="https://en.mojolicious.perlzemi.com/blog/20100403127089.html">Sample of real-time chat using Mojolicious, WebSocket, and Redis</a>
 </ul>
