@@ -17,13 +17,13 @@
     </li>
   </ul>
 </div>
-<h2>Installing redis - Redis Server Fast storage of volatile data and Pub/Sub</h2>.
+<h2>Installing redis - Redis Server Fast storage of volatile data and Pub/Sub</h2>
 
 Since the standard package repositories of CentOS do not include a Redis server, we will install the Extended Package for Enterprise Linux (EPEL) repository.
 
-<pre>.
+<pre>
 sudo yum -y install epel-release
-</pre>.
+</pre>
 
 To install the Redis server, install the redis package.
 
@@ -37,13 +37,13 @@ Let's check that the Redis server has been installed by using the systemctl stat
 
 <pre>
 sudo systemctl status redis
-</pre>.
+</pre>
 
 To start it, issue the following command
 
 <pre> sudo systemctl start redis
 sudo systemctl start redis
-</pre>.
+</pre>
 
 <h3>Redis Client - redis-cli</h4
 
@@ -57,7 +57,7 @@ When you install the Redis server, a command line application called redis-cli w
 
 There are two main uses for the Redis server.
 
-<h4>Fast storage of volatile data</h4>.
+<h4>Fast storage of volatile data</h4>
 
 The Redis server can store volatile data at high speed.
 
@@ -66,7 +66,7 @@ Volatile data is data that is temporary and is scheduled to be erased.
 Session information is erased after a certain period of time, and even if it is erased, the user is simply asked to start over from the login screen. Session information is volatile data.
 Also, since the session must be retrieved with each HTTP request, Redis performs better than relational databases such as <a href="https://mariadb.perlclub.net/">MariaDB</a>.
 
-<h4>Push Notification via Pub/Sub</h4>.
+<h4>Push Notification via Pub/Sub</h4>
 
 Redis has a push notification mechanism called Pub/Sub, which makes it relatively easy to implement real-time chat and real-time updates.
 

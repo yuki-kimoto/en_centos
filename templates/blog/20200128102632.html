@@ -17,7 +17,7 @@ Feb 03 14:57:03 vs01 systemd[1]: Started The Apache HTTP Server...
 Feb 03 15:00:03 vs01 systemd[1]: Reloaded The Apache HTTP Server.
 </pre>
 
-<h3>View from the end</h3>.
+<h3>View from the end</h3>
 
 Use the "-r" option to display the logs of starting, restarting and stopping Apache in reverse order, starting from the end.
 
@@ -25,7 +25,7 @@ Use the "-r" option to display the logs of starting, restarting and stopping Apa
 journalctl -r -u httpd
 </pre>
 
-<h3>Automatically retrieve the tail</h3>.
+<h3>Automatically retrieve the tail</h3>
 
 Use the "-f" option to automatically retrieve the end of the log and make it behave like the "-f" option of the <a href="https://linux.perlclub.net/blog/20200203124238.html">tail command</a>.
 

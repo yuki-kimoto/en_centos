@@ -1,4 +1,4 @@
-<h2>Starting, Stopping, Restarting, and Checking the Status of Redis Server</h2>.
+<h2>Starting, Stopping, Restarting, and Checking the Status of Redis Server</h2>
 
 Describes how to start, stop, restart, and check the status of the Redis server.
 
@@ -6,9 +6,9 @@ Describes how to start, stop, restart, and check the status of the Redis server.
 
 To check the status of Redis, use the systemctl command "status".
 
-<pre
+<pre>
 sudo systemctl status redis
-</pre>.
+</pre>
 
 <h5>If it is running</h5
 
@@ -25,7 +25,7 @@ redis.service - Redis persistent key-value database
            mq27074 /usr/bin/redis-server 127.0.0.1:6379
 </pre>
 
-<h5>If it is stopped</h5>.
+<h5>If it is stopped</h5>
 
 If the service is stopped, the following message will be displayed.
 
@@ -37,13 +37,13 @@ redis.service - Redis persistent key-value database
    Active: inactive (dead)
 </pre> <h4
 
-<h4>Start Redis</h4>.
+<h4>Start Redis</h4>
 
 To start Redis, use the systemctl command "start", run it with root privileges using the sudo command.
 
 <pre>
 sudo systemctl start redis
-</pre>.
+</pre>
 
 Even if the startup is successful, you will not get a message saying it was successful. Please check the status.
 
@@ -53,21 +53,21 @@ To stop Redis, use the systemctl command "stop", run as root using the sudo comm
 
 <pre>
 sudo systemctl stop redis
-</pre>.
+</pre>
 
 If the stop is successful, no message will be returned. Please check the status.
 
-<h4>Restart Redis</h4>.
+<h4>Restart Redis</h4>
 
 To restart Redis, use the systemctl command "restart", run it with root privileges using the sudo command.
 
-<pre>.
+<pre>
 sudo systemctl restart redis
-</pre>.
+</pre>
 
 restart simply executes the stop command, and then executes the start command.
 
-<h3>How to view the log of starting and stopping Redis</h3>.
+<h3>How to view the log of starting and stopping Redis</h3>
 
 Servers such as Redis are centrally managed by a program called systemd.
 
@@ -75,9 +75,9 @@ Redis start/stop logs are output to the systemd logs.
 
 To view the systemd logs, use the <a href="/blog/20200602135100.html">journalctl command</a>. Note that you cannot see the logs of the Redis server unless you run it with sudo. If you want to see only the last part of the log, use the "-r" option.
 
-<pre>.
+<pre>
 sudo journalctl -r -u redis
-</pre>.
+</pre>
 
 Here is a sample of the log
 
@@ -88,9 +88,9 @@ Jul 29 09:43:27 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Stopped Redis persiste
 Jul 29 09:43:27 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Stopping Redis persistent key-value database...
 Jul 29 09:19:06 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Started Redis persistent key-value database...
 Jul 29 09:19:06 tk2-261-40258.vs.sakura.ne.jp systemd[1]: Starting Redis persistent key-value database...
-</pre>.
+</pre>
 
-<h3>How to view the systemd configuration file for Redis</h3>.
+<h3>How to view the systemd configuration file for Redis</h3>
 
 You can view the Redis systemd configuration file by using "systemctl status redis".
 

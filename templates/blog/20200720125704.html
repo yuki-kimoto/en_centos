@@ -1,18 +1,18 @@
-<h2>redis-cli - Run Redis commands from Redis client</h2>.
+<h2>redis-cli - Run Redis commands from Redis client</h2>
 
 redis-cli is a Redis client for running Redis commands. It is automatically installed when you <a href="/blog/20200525135533.html">install the Redis server</a>.
 
 <pre>
 redis-cli
-</pre>.
+</pre>
 
 This will start the Redis client.
 
-<h3>Redis command</h3>.
+<h3>Redis command</h3>
 
 Run the Redis command.
 
-<h4>PUBLISH to run PUB</h4>.
+<h4>PUBLISH to run PUB</h4>
 
 Run the PUBLISH command to run PUB. PUB is used for push notifications.
 
@@ -24,10 +24,10 @@ Both the channel name and the message are just strings. If you need a complex da
 
 The channel name is a global namespace for all processes, so come up with a non-overlapping name.
 
-<pre>.
+<pre>
 PUBLISH /foo/bar/baz?id=5 Hello
 PUBLISH "/foo/bar/baz?id=5" "Hello"
 PUBLISH "/foo/bar/baz?id=5" '{message : "Hello"}'
-</pre>.
+</pre>
 
 Both double and single quotes can be used to enclose the string.

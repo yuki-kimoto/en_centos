@@ -1,13 +1,13 @@
-<h2>Using Let's encrypt to get an SSL certificate - CentOS 7</h2>.
+<h2>Using Let's encrypt to get an SSL certificate - CentOS 7</h2>
 
 To support HTTPS, let's install certbot to use Let's encrypt, which allows you to get an SSL certificate for free.
 
-<pre>.
+<pre>
 sudo yum -y install epel-release
 sudo yum -y install certbot python-certbot-apache
-</pre>.
+</pre>
 
-<h3>Let's encrypt requires a web server to obtain a certificate</h3>.
+<h3>Let's encrypt requires a web server to obtain a certificate</h3>
 
 Let's encrypt issues SSL certificates by verifying that you have access to a web server with an HTTP connection.
 
@@ -21,7 +21,7 @@ As a common server configuration, let's consider the case where a reverse proxy 
 
 Set up the following in /etc/httpd/conf.d/vhost.conf to receive "www.mydomain.example" on the default port 80 of HTTP, and then on port 10000 of the application server behind it.
 
-<pre
+<pre>
   <VirtualHost *:80
     ServerName www.mydomain.example
     
@@ -43,7 +43,7 @@ After configuring the settings, <a href="/blog/20200115175810.html">restart Apac
 
 Here is a simple example of starting a server with Mojolicious, which is a reverse proxy and connects to a web application.
 
-<pre>.
+<pre>
 # myapp.pl
 use Mojolicious::Lite;
 
@@ -52,32 +52,32 @@ app->start;
 
 Launch
 
-<pre
+<pre>
 hypnotoad myapp.pl
-</pre>.
+</pre>
 
 The default port for the <a href="https://en.webapp.perlzemi.com/">Mojolicious</a> hypnotoad server is 10000, but if you want to specify the port number, edit "hypnotoad.conf".
 
-<h3>Obtain an SSL certificate</h3>.
+<h3>Obtain an SSL certificate</h3>
 
 Let's use certbot to get an SSL certificate, and it will automatically add the configuration for HTTPS connection for Apache.
 
-<pre>.
+<pre>
 sudo certbot run --apache -d www.mydomain.example
 </pre>
 
 You will be asked for your email address first. Type in your email address and Enter.
 
-<pre
+<pre>
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator apache, Installer apache
 Enter email address (used for urgent renewal and security notices) (Enter 'c' to
 Enter 'c' to cancel):
-</pre>.
+</pre>
 
 Next, you will be asked if you agree to the terms of the agreement, press 'A' and enter.
 
-<pre>.
+<pre>
 Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org
 
 
@@ -87,11 +87,11 @@ agree in order to register with the ACME server at
 https://acme-v02.api.letsencrypt.org/directory
 - You must agree in order to register with the ACME server at .
 (A)gree/(C)ancel:
-</pre>.
+</pre>
 
 When you are asked if you want to share your email address with the Electronic Frontier Foundation, press "Y" or "N" and enter.
 
-<pre>.
+<pre>
 
 Would you be willing to share your email address with the Electronic Frontier Foundation, a founding partner of the Let
 Would you be willing to share your email address with the Electronic Frontier Foundation, a founding partner of the Let's Encrypt project and the non-profit organization that develops Certbot?
@@ -103,7 +103,7 @@ We'd like to send you an email about our work encrypting the web, EFF news, camp
 
 You will be asked if you want to redirect HTTP to HTTPS, so choose the "1" redirect.
 
-<pre>.
+<pre>
 Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
 - <pre> Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
 1: No redirect - Make no further changes to the webserver configuration.
@@ -112,11 +112,11 @@ You can undo this change by editing your web server's configuration.
 You can undo this change by editing your web server's configuration.
 - You can undo this change by editing your web server's configuration.
 Select the appropriate number [1-2] then [enter] (press 'c' to cancel):
-</pre>.
+</pre>
 
 Finally, an important notice will be displayed and the process will end.
 
-<pre
+<pre>
 IMPORTANT NOTES:
  - Congratulations! Your certificate and chain have been saved at:
    /etc/letsencrypt/live/quote-app.dev-winckler-yokohama.com/fullchain.pem
@@ -135,13 +135,13 @@ IMPORTANT NOTES:
 
    Donating to ISRG / Let's Encrypt: https://letsencrypt.org/donate
    Donating to EFF: https://eff.org/donate-le
-</pre>.
+</pre>
 
 The SSL certificate will be stored in the following directory
 
-<pre
+<pre>
 /etc/letsencrypt/live
-</pre>.
+</pre>
 
 If you look at it, you will see that it is stored in separate directories for each domain.
 
