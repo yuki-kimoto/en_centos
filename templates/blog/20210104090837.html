@@ -1,8 +1,8 @@
-<h2>Google Chromeをインストールする - CentOS 7</h2>
+<h2> Install Google Chrome - CentOS 7 </h2>
 
-Google Chromeをインストールします。CentOS 7で試しました。
+Install Google Chrome. I tried it on CentOS 7.
 
-Google Chrome用のリポジトリを追加します。
+Add a repository for Google Chrome.
 
 <pre>
 vi /etc/yum.repos.d/google-chrome.repo
@@ -17,34 +17,34 @@ gpgcheck=1
 gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
 </pre>
 
-Google Chromeをyumコマンドでインストール。
+Install Google Chrome with the yum command.
 
 <pre>
 yum -y install google-chrome-stable
 </pre>
 
-バージョン確認してみましょう。
+Let's check the version.
 
 <pre>
 google-chrome --version
 </pre>
 
-バージョンの出力結果です。
+This is the output result of the version.
 
 <pre>
 Google Chrome 87.0.4280.88
 </pre>
 
-<h3>Google Chromeをヘッドレス実行する</h3>
+<h3> Run Google Chrome headless </h3>
 
-ヘッドレス実行とはGUI画面なしでWebサイトのアクセスすることです。Google Chromeをヘッドレス実行してスクリーンショットを取得します。
+Headless execution means accessing a website without a GUI screen. Run Google Chrome headless and take a screenshot.
 
 <pre>
 google-chrome --disable-setuid-sandbox --no-sandbox --headless --disable-gpu --dump-dom https://www.chromestatus.com/
 </pre>
 
-画面にHTMLのツリーが表示されればOKです。
+It is OK if the HTML tree is displayed on the screen.
 
-<h3>JavaScript対応のWebスクレイピングをPerlで行うには?</h3>
+<h3> How to do JavaScript-compatible web scraping in Perl? </H3>
 
-JavaScript対応のWebスクレイピングをPerlで行うにはGoogle Chromeに加えて、<a href="/blog/20210103090837.html">ChromeDriverのインストール</a>と<a href="https://perlzemi.com/blog/20091116124667.html">Perlモジュール</a>の<a href="https://perlzemi.com/blog/20210105145700.html">Selenium::Remote::Driver</a>が必要です。
+To do JavaScript-enabled web scraping in Perl, in addition to Google Chrome, <a href="/blog/20210103090837.html"> Install Chrome Driver</a> and <a href="https://perlzemi.com" /blog/20091116124667.html"> Perl module</a> <a href="https://perlzemi.com/blog/20210105145700.html"> Selenium::Remote::Driver</a> is required.
