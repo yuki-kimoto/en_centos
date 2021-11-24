@@ -2,25 +2,26 @@
 
 To check the logs of starting, restarting and stopping Apache, narrow down the logs displayed by the journalctl command to only Apache logs by using "-u httpd".
 
-<pre
+<pre>
 journalctl -u httpd
-</pre>.
+</pre>
 
 Here is a sample of the output
 
-<pre> journalctl -u httpd
+<pre>
+journalctl -u httpd
 eb 03 14:54:56 vs01 systemd[1]: Reloaded The Apache HTTP Server.
 Feb 03 14:56:44 vs01 systemd[1]: Stopping The Apache HTTP Server...
 Feb 03 14:57:02 vs01 systemd[1]: Starting The Apache HTTP Server...
 Feb 03 14:57:03 vs01 systemd[1]: Started The Apache HTTP Server...
 Feb 03 15:00:03 vs01 systemd[1]: Reloaded The Apache HTTP Server.
-</pre>.
+</pre>
 
 <h3>View from the end</h3>.
 
 Use the "-r" option to display the logs of starting, restarting and stopping Apache in reverse order, starting from the end.
 
-<pre
+<pre>
 journalctl -r -u httpd
 </pre>
 
@@ -28,6 +29,6 @@ journalctl -r -u httpd
 
 Use the "-f" option to automatically retrieve the end of the log and make it behave like the "-f" option of the <a href="https://linux.perlclub.net/blog/20200203124238.html">tail command</a>.
 
-<pre
+<pre>
 journalctl -f -u httpd
 </pre>

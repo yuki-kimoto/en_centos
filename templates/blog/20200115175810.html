@@ -1,71 +1,71 @@
-<h2> Apache installation and start / stop / auto start settings --CentOS7 </ h2>
+<h2> Apache installation and start / stop / auto start settings --CentOS7 </h2>
 
 This is the procedure for installing Apache on CentOS7 and setting start / stop / automatic start.
 
-<h3> Apache installation </ h3>
+<h3> Apache installation </h3>
 
 Install Apache using the yum command.
 
 <pre>
 #Install Apache
 sudo yum -y install httpd
-</ pre>
+</pre>
 
-<h3> Apache version check </ h3>
+<h3> Apache version check </h3>
 
 Let's check the version of Apache.
 
 <pre>
 httpd -version
-</ pre>
+</pre>
 
 The version of Apache was 2.4.6.
 
 <pre>
 Server version: Apache / 2.4.6 (CentOS)
 Server built: Aug 8 2019 11:41:18
-</ pre>
+</pre>
 
-<h3> Apache auto-start settings </ h3>
+<h3> Apache auto-start settings </h3>
 
 Make sure Apache starts automatically when you start CentOS7. Use the systemctl command "enable" to set Apache to start automatically.
 
 <pre>
 #Apache autostart settings
 sudo systemctl enable httpd.service
-</ pre>
+</pre>
 
-<h3> Start Apache </ h3>
+<h3> Start Apache </h3>
 
 Start Apache. To start Apache, use the systemctl command "start".
 
 <pre>
 #Start Apache
 sudo systemctl start httpd.service
-</ pre>
+</pre>
 
-<h3> Stop Apache </ h3>
+<h3> Stop Apache </h3>
 
 Use the systemctl command "stop" to stop Apache.
 
 <pre>
 # Stop Apache
 sudo systemctl stop httpd.service
-</ pre>
+</pre>
 
-<h3> Restart Apache </ h3>
+<h3> Restart Apache </h3>
 
 Use the systemctl command "restart" to restart Apache.
 
 <pre>
 #Restart Aapche
 sudo systemctl restart httpd.service
-</ pre>
+</pre>
 
-<h3> How to enable HTTPS connection? </ H3>
+<h3> How to enable HTTPS connection? </H3>
 
 The HTTPS connection is an SSL connection, so mod_ssl is required. Please refer to the following articles.
 
 <ul>
-  <li> <a href="/blog/20200112182708.html"> Install mod_ssl for HTTPS connection with Apache on CentOS 7 </ li>
-</ ul>
+  <li> <a href="/blog/20200112182708.html"> Install mod_ssl for HTTPS connection with Apache on CentOS 7 </li>
+</ul>
