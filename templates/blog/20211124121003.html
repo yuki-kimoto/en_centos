@@ -1,0 +1,44 @@
+<h2>Install Fonts</h2>
+
+I explain the way to install fonts. You can intall fonts using yum command as follows. This is examples of Japanese fonts. You need to search for the fonts you need by yourself using search engines, etc. I tried this article on CentOS 7.
+
+<pre>
+# Install Fonts
+yum -y install ipa-gothic-fonts
+yum -y install ipa-pgothic-fonts
+yum -y install ipa-mincho-fonts
+yum -y install ipa-pmincho-fonts
+</pre>
+
+The fonts is installed on <b>/usr/share/fonts</b> directory. You can see the fonts using <b>find</b> command.
+
+<pre>
+# Find founts
+find /usr/share/fonts
+</pre>
+
+You can see the fonts you want to see using <b>grep</b> command with <b>find</b> command.
+
+<pre>
+# See the fonts you want to see
+find /usr/share/fonts | grep ipa
+</pre>
+
+An example of the output:
+
+<pre>
+/usr/share/fonts/ipa-gothic
+/usr/share/fonts/ipa-gothic/ipag.ttf
+/usr/share/fonts/ipa-gothic/.uuid
+/usr/share/fonts/ipa-pgothic
+/usr/share/fonts/ipa-pgothic/ipagp.ttf
+/usr/share/fonts/ipa-pgothic/.uuid
+/usr/share/fonts/ipa-mincho
+/usr/share/fonts/ipa-mincho/ipam.ttf
+/usr/share/fonts/ipa-mincho/.uuid
+/usr/share/fonts/ipa-pmincho
+/usr/share/fonts/ipa-pmincho/ipamp.ttf
+/usr/share/fonts/ipa-pmincho/.uuid
+</pre>
+
+The files which have the extension ".ttf" are font files.
